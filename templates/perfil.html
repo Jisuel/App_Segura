@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de usuario - Aplicación</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Bienvenido, {{ nombre_usuario }}</h2>
+      <p>
+        Esta es tu página de perfil. Aquí puedes ver y actualizar tu información
+        personal.
+      </p>
+      <ul>
+        <li><strong>Nombre de usuario:</strong> {{ nombre_usuario }}</li>
+        <li><strong>Correo electrónico:</strong> {{ correo_electronico }}</li>
+        <!-- Agrega más información del usuario según tu modelo de datos -->
+      </ul>
+      <h2>Contraseñas almacenadas:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre de Sitio</th>
+            <th>Contraseña</th>
+            <th>Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contraseña in contraseñas %}
+          <tr>
+            <td>{{ contraseña.nombre_servicio }}</td>
+            <td>{{ contraseña.contraseña_hash }}</td>
+            <td>{{ contraseña.notas }}</td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+      <a href="registrar_contraseña.html" class="btn">Registrar Contraseña</a>
+      <a href="index.html" class="btn">Cerrar sesión</a>
+    </div>
+  </body>
+</html>

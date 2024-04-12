@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión - Aplicación</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-form">
+        <h2>Iniciar sesión</h2>
+        <form action="login.html" method="POST">
+          <div class="form-group">
+            <label for="nombre">Usuario:</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required />
+          </div>
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for
+          message in messages %}
+          <div>{{message}}</div>
+          {% endfor%} {% endif %} {% endwith %} {% block content %} {% endblock
+          %}
+          <button type="submit" class="btn">Iniciar sesión</button>
+        </form>
+        <p>
+          ¿No tienes una cuenta?
+          <a href="registro.html">Regístrate aquí</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
